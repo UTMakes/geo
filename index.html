@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometry Dictionary — Units 6 & 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0e17;
+  --surface: #1a1928;
+  --card: #201f30;
+  --border: #2e2d45;
+  --accent: #ff6b35;
+  --gold: #f0c060;
+  --teal: #50d4c0;
+  --lavender: #a89fd8;
+  --text: #e8e6f0;
+  --muted: #7a7890;
+  --dim: #3a3850;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  padding: 56px 48px 44px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.header-geo {
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 360px; height: 360px;
+  opacity: 0.07;
+  animation: slow-spin 40s linear infinite;
+}
+
+@keyframes slow-spin { to { transform: rotate(360deg); } }
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.header-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.header-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+.header-title em { font-style: italic; color: var(--gold); }
+
+.header-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  width: 240px;
+  transition: border-color 0.2s;
+}
+
+.search-box:focus-within { border-color: var(--accent); }
+.search-box svg { flex-shrink: 0; color: var(--muted); }
+
+.search-box input {
+  background: none; border: none; outline: none;
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
+
+.search-box input::placeholder { color: var(--muted); }
+
+.unit-pills { display: flex; gap: 8px; }
+
+.pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  min-height: calc(100vh - 200px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 32px 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dim) transparent;
+}
+
+.sidebar-unit-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 16px 20px 6px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 20px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+}
+
+.nav-link:hover { color: var(--text); border-left-color: var(--dim); }
+.nav-link.active { color: var(--accent); border-left-color: var(--accent); background: rgba(255,107,53,0.06); }
+
+.nav-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--dim);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.nav-link.active .nav-dot { background: var(--accent); }
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 20px;
+}
+
+/* CONTENT */
+.content {
+  padding: 48px 52px;
+  max-width: 860px;
+}
+
+.unit-block { display: none; animation: rise 0.35s ease both; }
+.unit-block.visible { display: block; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.unit-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.unit-number {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--dim);
+  letter-spacing: -4px;
+}
+
+.unit-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.unit-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 22px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ENTRY CARD */
+.entry {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  scroll-margin-top: 24px;
+}
+
+.entry:hover {
+  border-color: var(--dim);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.entry-top {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 20px;
+  padding: 26px 26px 0;
+  align-items: start;
+}
+
+.lesson-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.entry-term {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.entry-pos {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.entry-def {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #c0bdd4;
+  font-weight: 300;
+}
+
+.entry-def strong { color: var(--gold); font-weight: 500; }
+
+.entry-diagram { width: 100%; }
+.entry-diagram svg { width: 100%; height: auto; display: block; }
+
+.entry-body {
+  padding: 18px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notation-block {
+  background: var(--surface);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+}
+
+.block-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.notation-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--lavender);
+}
+
+/* Structured notation table */
+.ntable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+}
+.ntable tr + tr td { border-top: 1px solid rgba(255,255,255,0.04); }
+.ntable td { padding: 5px 0; vertical-align: middle; }
+.ntable .nf { color: var(--lavender); white-space: nowrap; padding-right: 20px; font-size: 12.5px; }
+.ntable .nl { color: var(--muted); font-size: 11px; letter-spacing: 0.02em; }
+.ntable .narrow { color: var(--teal); padding: 0 8px; white-space: nowrap; }
+.nsep td { padding-top: 8px !important; border-top: 1px dashed rgba(255,255,255,0.07) !important; }
+.ntable .nhead td { color: var(--muted); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--border) !important; }
+.nformula { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--lavender); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+.example-block {
+  background: var(--surface);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+}
+
+.example-block .block-label { color: var(--gold); }
+
+.example-text {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #c0bdd4;
+}
+
+.example-text strong { color: var(--text); font-weight: 500; }
+
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.sub-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.sub-term {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lavender);
+  margin-bottom: 6px;
+}
+
+.sub-def {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.sub-def strong { color: var(--text); }
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-style: italic;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; }
+  .content { padding: 24px; }
+  .entry-top { grid-template-columns: 1fr; }
+  header { padding: 36px 24px 28px; }
+  .header-controls { align-items: flex-start; }
+  .search-box { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="header-geo" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="200,20 380,310 20,310" stroke="white" stroke-width="1.5" fill="none"/>
+    <polygon points="200,60 340,290 60,290" stroke="white" stroke-width="1" fill="none"/>
+    <circle cx="200" cy="200" r="160" stroke="white" stroke-width="1" fill="none"/>
+    <circle cx="200" cy="200" r="100" stroke="white" stroke-width="0.5" fill="none"/>
+    <line x1="40" y1="200" x2="360" y2="200" stroke="white" stroke-width="0.5"/>
+    <line x1="200" y1="40" x2="200" y2="360" stroke="white" stroke-width="0.5"/>
+    <polygon points="200,40 360,200 200,360 40,200" stroke="white" stroke-width="0.75" fill="none"/>
+  </svg>
+  <div class="header-top">
+    <div>
+      <div class="header-eyebrow">Geometry · Reference</div>
+      <div class="header-title"><em>Dictionary</em> of<br>Transformations &amp; Similarity</div>
+      <div class="header-subtitle">Units 6 &amp; 7 · Complete Term Reference with Diagrams</div>
+    </div>
+    <div class="header-controls">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search terms…" oninput="filterEntries(this.value)" id="search-input">
+      </div>
+      <div class="unit-pills">
+        <button class="pill active" onclick="showUnit('all',this)">All</button>
+        <button class="pill" onclick="showUnit('u6',this)">Unit 6</button>
+        <button class="pill" onclick="showUnit('u7',this)">Unit 7</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div data-unit="u6">
+      <div class="sidebar-unit-label">Unit 6</div>
+      <a class="nav-link" onclick="jump('rigid-motion')"><span class="nav-dot"></span>Rigid Motion</a>
+      <a class="nav-link" onclick="jump('translation')"><span class="nav-dot"></span>Translation</a>
+      <a class="nav-link" onclick="jump('reflection')"><span class="nav-dot"></span>Reflection</a>
+      <a class="nav-link" onclick="jump('rotation')"><span class="nav-dot"></span>Rotation</a>
+      <a class="nav-link" onclick="jump('dilation')"><span class="nav-dot"></span>Dilation</a>
+      <a class="nav-link" onclick="jump('scale-factor')"><span class="nav-dot"></span>Scale Factor</a>
+      <a class="nav-link" onclick="jump('neg-dilation')"><span class="nav-dot"></span>Negative Dilation</a>
+      <a class="nav-link" onclick="jump('symmetry')"><span class="nav-dot"></span>Symmetry</a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div data-unit="u7">
+      <div class="sidebar-unit-label">Unit 7</div>
+      <a class="nav-link" onclick="jump('similar-figures')"><span class="nav-dot"></span>Similar Figures</a>
+      <a class="nav-link" onclick="jump('side-splitter')"><span class="nav-dot"></span>Side Splitter Thm.</a>
+      <a class="nav-link" onclick="jump('midsegment')"><span class="nav-dot"></span>Midsegment Thm.</a>
+    </div>
+  </nav>
+
+  <main class="content">
+
+    <!-- ══ UNIT 6 ══ -->
+    <div class="unit-block visible" id="u6-block">
+      <div class="unit-heading">
+        <div class="unit-number">6</div>
+        <div>
+          <div class="unit-tag">Unit 6 · L1–L8</div>
+          <div class="unit-name">Transformations &amp; Symmetry</div>
+        </div>
+      </div>
+
+      <!-- RIGID MOTION -->
+      <div class="entry" id="rigid-motion">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L1 · Intro to Transformations</div>
+            <div class="entry-term">Rigid Motion</div>
+            <div class="entry-pos">noun phrase · also: isometry</div>
+            <div class="entry-def">A transformation that preserves <strong>shape</strong> and <strong>size</strong>. Only position changes — pre-image and image are always <strong>congruent (≅)</strong>.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f0c060"/></marker></defs>
+              <polygon points="18,95 52,22 78,95" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="10" y="108" font-family="Space Mono" font-size="9" fill="#50d4c0">△ABC</text>
+              <polygon points="102,95 136,22 162,95" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <text x="94" y="108" font-family="Space Mono" font-size="9" fill="#a89fd8">△A'B'C'</text>
+              <path d="M 83 52 Q 90 44 97 52" stroke="#f0c060" stroke-width="1.3" fill="none" marker-end="url(#a1)"/>
+              <text x="90" y="41" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="middle">≅</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Key Fact</div>
+            <table class="ntable">
+              <tr><td class="nf">✓ Rigid</td><td class="nl">Translations, Reflections, Rotations</td></tr>
+              <tr class="nsep"><td class="nf">✗ Not Rigid</td><td class="nl">Dilations — they change size</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Memory Hook</div>
+            <div class="example-text"><strong>"Rigid"</strong> = stiff, unchanging. Like picking up a wooden shape and setting it somewhere new — it doesn't bend, stretch, or shrink.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSLATION -->
+      <div class="entry" id="translation">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L2 · Translations</div>
+            <div class="entry-term">Translation</div>
+            <div class="entry-pos">noun · verb: to translate</div>
+            <div class="entry-def">A rigid motion that slides every point the <strong>same distance</strong> in the <strong>same direction</strong>, described by a <strong>vector (a, b)</strong>. No rotating or flipping.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a2" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#f0c060"/></marker></defs>
+              <polygon points="15,90 45,25 68,90" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <polygon points="95,90 125,25 148,90" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <line x1="45" y1="25" x2="122" y2="25" stroke="#f0c060" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a2)"/>
+              <line x1="15" y1="90" x2="92" y2="90" stroke="#f0c060" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a2)"/>
+              <line x1="68" y1="90" x2="145" y2="90" stroke="#f0c060" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a2)"/>
+              <text x="83" y="16" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">same vector</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Notation</div>
+            <div class="nformula">T₍ₐ,ᵦ₎(x, y) = (x + a, y + b)</div>
+            <table class="ntable">
+              <tr><td class="nf">a</td><td class="narrow">→</td><td class="nl">shift right (+) or left (−)</td></tr>
+              <tr><td class="nf">b</td><td class="narrow">→</td><td class="nl">shift up (+) or down (−)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">T₍₃,−₂₎(1, 4) = (4, 2). &nbsp;Point A shifts <strong>right 3, down 2</strong>. Every vertex moves the exact same amount.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFLECTION -->
+      <div class="entry" id="reflection">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L3 · Reflections</div>
+            <div class="entry-term">Reflection</div>
+            <div class="entry-pos">noun · verb: to reflect</div>
+            <div class="entry-def">A rigid motion that <strong>flips</strong> a figure over a <strong>line of reflection</strong>. Each point maps to the opposite side at the same perpendicular distance. Orientation <strong>reverses</strong>.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg">
+              <line x1="90" y1="8" x2="90" y2="112" stroke="#7a7890" stroke-width="1.5" stroke-dasharray="6,3"/>
+              <text x="90" y="6" font-family="Space Mono" font-size="9" fill="#7a7890" text-anchor="middle">m</text>
+              <polygon points="18,100 55,20 74,100" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <polygon points="162,100 125,20 106,100" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <line x1="55" y1="20" x2="125" y2="20" stroke="#f0c060" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <line x1="18" y1="100" x2="162" y2="100" stroke="#f0c060" stroke-width="0.8" stroke-dasharray="2,2"/>
+              <text x="90" y="112" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">equidistant</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Notation &amp; Common Reflections</div>
+            <div class="nformula">rₘ(P) = P' &nbsp;— reflect P over line m</div>
+            <table class="ntable">
+              <tr class="nhead"><td>Line</td><td class="narrow"></td><td>Mapping</td></tr>
+              <tr><td class="nf">x-axis</td><td class="narrow">→</td><td class="nl">(x, y) → (x, −y)</td></tr>
+              <tr><td class="nf">y-axis</td><td class="narrow">→</td><td class="nl">(x, y) → (−x, y)</td></tr>
+              <tr><td class="nf">y = x</td><td class="narrow">→</td><td class="nl">(x, y) → (y, x)</td></tr>
+              <tr><td class="nf">y = −x</td><td class="narrow">→</td><td class="nl">(x, y) → (−y, −x)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Key Properties</div>
+            <div class="example-text">The line of reflection is the <strong>perpendicular bisector</strong> of the segment joining each point to its image. Distances preserved, but <strong>orientation reverses</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROTATION -->
+      <div class="entry" id="rotation">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L5 · Rotations</div>
+            <div class="entry-term">Rotation</div>
+            <div class="entry-pos">noun · verb: to rotate</div>
+            <div class="entry-def">A rigid motion that <strong>turns</strong> a figure around a fixed <strong>center of rotation O</strong>. CCW = positive angle; CW = negative angle.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="a3" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#f0c060"/></marker></defs>
+              <circle cx="90" cy="72" r="3" fill="#f0c060"/>
+              <text x="96" y="76" font-family="Space Mono" font-size="9" fill="#f0c060">O</text>
+              <polygon points="90,72 142,38 156,90" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <polygon points="90,72 52,124 18,72" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <path d="M 140 48 A 58 58 0 0 0 66 122" stroke="#f0c060" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#a3)"/>
+              <text x="106" y="112" font-family="Space Mono" font-size="9" fill="#f0c060">90° CCW</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Notation &amp; Rules About the Origin</div>
+            <div class="nformula">R₍O, θ₎ &nbsp;— rotate about O by θ°</div>
+            <table class="ntable">
+              <tr class="nhead"><td>Angle</td><td class="narrow"></td><td>Mapping</td></tr>
+              <tr><td class="nf">90° CCW</td><td class="narrow">→</td><td class="nl">(x, y) → (−y, x)</td></tr>
+              <tr><td class="nf">180°</td><td class="narrow">→</td><td class="nl">(x, y) → (−x, −y)</td></tr>
+              <tr><td class="nf">270° CCW</td><td class="narrow">→</td><td class="nl">(x, y) → (y, −x)</td></tr>
+              <tr><td class="nf">360°</td><td class="narrow">→</td><td class="nl">(x, y) → (x, y) &nbsp;← same</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">Rotate A(3, 1) by <strong>90° CCW</strong> about the origin:<br>(3, 1) → (−1, 3) = A'</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DILATION -->
+      <div class="entry" id="dilation">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7/9 · Dilations</div>
+            <div class="entry-term">Dilation</div>
+            <div class="entry-pos">noun · verb: to dilate</div>
+            <div class="entry-def">Resizes a figure by scale factor <strong>k</strong> from a fixed <strong>center O</strong>. Shape and angles are preserved; side lengths multiply by |k|. <strong>NOT a rigid motion.</strong></div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 125" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="105" r="3" fill="#f0c060"/>
+              <text x="8" y="120" font-family="Space Mono" font-size="9" fill="#f0c060">O</text>
+              <polygon points="52,85 72,55 85,85" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="68" y="48" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">pre</text>
+              <polygon points="102,105 143,45 165,105" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <text x="136" y="38" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">image</text>
+              <line x1="18" y1="105" x2="165" y2="105" stroke="#7a7890" stroke-width="0.7" stroke-dasharray="3,2"/>
+              <line x1="18" y1="105" x2="143" y2="45" stroke="#7a7890" stroke-width="0.7" stroke-dasharray="3,2"/>
+              <text x="140" y="20" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="middle">k = 2</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Notation</div>
+            <div class="nformula">D₍O, k₎ &nbsp;— dilation centered at O, scale factor k</div>
+            <table class="ntable">
+              <tr><td class="nf">Any point</td><td class="narrow">→</td><td class="nl">D₍O, k₎(x, y) = (kx, ky) &nbsp;when center = origin</td></tr>
+            </table>
+          </div>
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Enlargement</div>
+              <div class="sub-def"><strong>|k| &gt; 1</strong> → image is bigger.<br>k = 3 triples all sides.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Reduction</div>
+              <div class="sub-def"><strong>0 &lt; |k| &lt; 1</strong> → image is smaller.<br>k = ½ halves all sides.</div>
+            </div>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">D₍O, 2₎ maps A(1, 3) → A'(2, 6). All distances from O double.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCALE FACTOR -->
+      <div class="entry" id="scale-factor">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7/9 · Dilations</div>
+            <div class="entry-term">Scale Factor</div>
+            <div class="entry-pos">noun phrase · symbol: k</div>
+            <div class="entry-def">The ratio of an <strong>image side</strong> to its corresponding <strong>pre-image side</strong>. Tells you how much a dilation enlarges or reduces.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="38" width="44" height="30" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="30" y="30" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">s = 4</text>
+              <rect x="76" y="18" width="96" height="66" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <text x="124" y="10" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">s' = 9.6</text>
+              <text x="90" y="104" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="middle">k = 9.6 ÷ 4 = 2.4</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Formula &amp; Interpreting k</div>
+            <div class="nformula">k = A'B' ÷ AB &nbsp;(image ÷ pre-image)</div>
+            <table class="ntable">
+              <tr><td class="nf">k = 1</td><td class="narrow">→</td><td class="nl">same size</td></tr>
+              <tr><td class="nf">k &gt; 1</td><td class="narrow">→</td><td class="nl">enlargement</td></tr>
+              <tr><td class="nf">0 &lt; k &lt; 1</td><td class="narrow">→</td><td class="nl">reduction</td></tr>
+              <tr><td class="nf">k &lt; 0</td><td class="narrow">→</td><td class="nl">negative dilation</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEGATIVE DILATION -->
+      <div class="entry" id="neg-dilation">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7/9 · Dilations</div>
+            <div class="entry-term">Negative Dilation</div>
+            <div class="entry-pos">noun phrase · scale factor k &lt; 0</div>
+            <div class="entry-def">A dilation where <strong>k &lt; 0</strong>. The image is resized AND flipped <strong>180°</strong> through the center — landing on the <strong>opposite side</strong> of O.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="60" r="3" fill="#f0c060"/>
+              <text x="97" y="64" font-family="Space Mono" font-size="9" fill="#f0c060">O</text>
+              <polygon points="108,24 150,24 150,50" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="130" y="15" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">pre</text>
+              <polygon points="72,96 30,96 30,70" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <text x="50" y="112" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">image</text>
+              <line x1="30" y1="70" x2="150" y2="50" stroke="#7a7890" stroke-width="0.7" stroke-dasharray="2,2"/>
+              <line x1="30" y1="96" x2="150" y2="24" stroke="#7a7890" stroke-width="0.7" stroke-dasharray="2,2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">What Happens</div>
+            <div class="nformula">D₍O, −k₎ = D₍O, k₎ + 180° rotation about O</div>
+            <table class="ntable">
+              <tr><td class="nf">Size</td><td class="narrow">→</td><td class="nl">scaled by |k|</td></tr>
+              <tr><td class="nf">Position</td><td class="narrow">→</td><td class="nl">opposite side of center O</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Tip</div>
+            <div class="example-text">Think of O as a <strong>pivot</strong> — the image "passes through" the center and emerges on the other side, resized.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SYMMETRY -->
+      <div class="entry" id="symmetry">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L8 · Symmetry</div>
+            <div class="entry-term">Symmetry</div>
+            <div class="entry-pos">noun</div>
+            <div class="entry-def">A figure has <strong>symmetry</strong> when a transformation maps it exactly onto itself. Three types below.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="90,12 133,45 116,96 64,96 47,45" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.06)"/>
+              <line x1="90" y1="8" x2="90" y2="115" stroke="#f0c060" stroke-width="0.9" stroke-dasharray="3,2" opacity="0.8"/>
+              <line x1="47" y1="45" x2="133" y2="45" stroke="#f0c060" stroke-width="0.6" stroke-dasharray="3,2" opacity="0.5"/>
+              <line x1="64" y1="96" x2="133" y2="45" stroke="#f0c060" stroke-width="0.6" stroke-dasharray="3,2" opacity="0.5"/>
+              <line x1="116" y1="96" x2="47" y2="45" stroke="#f0c060" stroke-width="0.6" stroke-dasharray="3,2" opacity="0.5"/>
+              <text x="90" y="117" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">5 lines · order 5</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Line Symmetry</div>
+              <div class="sub-def">A reflection over a line maps the figure to itself. That line = <strong>axis of symmetry</strong>.<br>Rectangle: 2 lines. Equilateral △: 3 lines.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Point Symmetry</div>
+              <div class="sub-def">A <strong>180° rotation</strong> about a center maps it onto itself. Every point has a match directly opposite the center.<br>Examples: letter S, parallelogram.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Rotational Symmetry</div>
+              <div class="sub-def">A rotation <strong>less than 360°</strong> maps it onto itself.<br><br><strong>Order</strong> = # of matches per 360°<br><strong>Angle</strong> = 360° ÷ order<br><br>Regular pentagon: order 5, angle = 72°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /u6-block -->
+
+    <!-- ══ UNIT 7 ══ -->
+    <div class="unit-block" id="u7-block">
+      <div class="unit-heading">
+        <div class="unit-number">7</div>
+        <div>
+          <div class="unit-tag">Unit 7 · L1, L3, L4</div>
+          <div class="unit-name">Similar Figures &amp; Proportionality</div>
+        </div>
+      </div>
+
+      <!-- SIMILAR FIGURES -->
+      <div class="entry" id="similar-figures">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L1 · Similar Figures</div>
+            <div class="entry-term">Similar Figures</div>
+            <div class="entry-pos">noun phrase · symbol: ~</div>
+            <div class="entry-def">Same <strong>shape</strong>, not necessarily same <strong>size</strong>. Corresponding angles are congruent; corresponding sides are proportional.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="10,105 38,30 58,105" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="34" y="118" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">△ABC</text>
+              <polygon points="82,112 126,8 168,112" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)" stroke-dasharray="5,3"/>
+              <text x="125" y="125" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">△DEF</text>
+              <text x="88" y="68" font-family="Libre Baskerville" font-size="22" fill="#f0c060">~</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">If △ABC ~ △DEF</div>
+            <table class="ntable">
+              <tr><td class="nf">Angles</td><td class="narrow">→</td><td class="nl">∠A ≅ ∠D, &nbsp;∠B ≅ ∠E, &nbsp;∠C ≅ ∠F</td></tr>
+              <tr><td class="nf">Sides</td><td class="narrow">→</td><td class="nl">AB/DE = BC/EF = AC/DF = k</td></tr>
+              <tr class="nsep"><td class="nf">⚠ Order</td><td class="narrow">→</td><td class="nl">A↔D, B↔E, C↔F matters!</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Similarity Shortcuts (Triangles)</div>
+            <div class="example-text">
+              <strong>AA ~</strong> — two pairs of ≅ angles → similar<br>
+              <strong>SAS ~</strong> — two sides proportional + included angle ≅<br>
+              <strong>SSS ~</strong> — all three pairs of sides proportional
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE SPLITTER -->
+      <div class="entry" id="side-splitter">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L3 · Side Splitter Theorem</div>
+            <div class="entry-term">Side Splitter Theorem</div>
+            <div class="entry-pos">noun phrase · Triangle Proportionality Theorem</div>
+            <div class="entry-def">If a line is <strong>parallel to one side</strong> of a triangle and intersects the other two sides, it divides those sides <strong>proportionally</strong>.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="90,10 10,122 170,122" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="42" y1="74" x2="138" y2="74" stroke="#f0c060" stroke-width="2"/>
+              <text x="90" y="7" font-family="Space Mono" font-size="9" fill="#50d4c0" text-anchor="middle">A</text>
+              <text x="3" y="130" font-family="Space Mono" font-size="9" fill="#50d4c0">B</text>
+              <text x="173" y="130" font-family="Space Mono" font-size="9" fill="#50d4c0">C</text>
+              <text x="34" y="72" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="end">D</text>
+              <text x="145" y="72" font-family="Space Mono" font-size="9" fill="#f0c060">E</text>
+              <text x="90" y="93" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">DE ∥ BC</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Theorem — If DE ∥ BC in △ABC</div>
+            <table class="ntable">
+              <tr><td class="nf">AD / DB</td><td class="narrow">=</td><td class="nl">AE / EC</td></tr>
+              <tr class="nsep"><td class="nf">AD / AB</td><td class="narrow">=</td><td class="nl">AE / AC &nbsp;= &nbsp;DE / BC</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">DE ∥ BC. If AD = 4, DB = 6, AE = 8, find EC.<br>
+            4/6 = 8/EC &nbsp;→&nbsp; 4·EC = 48 &nbsp;→&nbsp; <strong>EC = 12</strong></div>
+          </div>
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Corollary</div>
+              <div class="sub-def">Three or more <strong>parallel lines</strong> cutting two transversals divide those transversals in the same ratio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDSEGMENT -->
+      <div class="entry" id="midsegment">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L4 · Midsegment Theorem</div>
+            <div class="entry-term">Midsegment Theorem</div>
+            <div class="entry-pos">noun phrase · Triangle Midsegment Theorem</div>
+            <div class="entry-def">A <strong>midsegment</strong> connects the <strong>midpoints</strong> of two sides of a triangle. It is always <strong>parallel</strong> to the third side and exactly <strong>half its length</strong>.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="90,10 10,122 170,122" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="50" y1="66" x2="130" y2="66" stroke="#f0c060" stroke-width="2.2"/>
+              <circle cx="50" cy="66" r="4" fill="#f0c060"/>
+              <circle cx="130" cy="66" r="4" fill="#f0c060"/>
+              <text x="90" y="7" font-family="Space Mono" font-size="9" fill="#50d4c0" text-anchor="middle">A</text>
+              <text x="3" y="130" font-family="Space Mono" font-size="9" fill="#50d4c0">B</text>
+              <text x="172" y="130" font-family="Space Mono" font-size="9" fill="#50d4c0">C</text>
+              <text x="38" y="64" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="end">M</text>
+              <text x="137" y="64" font-family="Space Mono" font-size="9" fill="#f0c060">N</text>
+              <text x="90" y="58" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">MN = ½BC</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Theorem — M midpoint of AB, N midpoint of AC</div>
+            <table class="ntable">
+              <tr><td class="nf">MN ∥ BC</td><td class="narrow">→</td><td class="nl">parallel to the third side</td></tr>
+              <tr><td class="nf">MN = ½ · BC</td><td class="narrow">→</td><td class="nl">half its length</td></tr>
+              <tr class="nsep"><td class="nf">Scale factor</td><td class="narrow">=</td><td class="nl">½ &nbsp;(△AMN to △ABC)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples</div>
+            <div class="example-text">
+              QR = 18 → midsegment ST = <strong>9</strong><br>
+              ST = 7 → QR = <strong>14</strong><br><br>
+              <strong>Connection to Side Splitter:</strong> The Midsegment Theorem is the Side Splitter Theorem with k = ½ (the line hits exact midpoints).
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /u7-block -->
+
+    <div class="no-results" id="no-results">No terms match your search.</div>
+  </main>
+</div>
+
+<script>
+let activeUnit = 'all';
+
+function showUnit(unit, btn) {
+  activeUnit = unit;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.getElementById('u6-block').classList.toggle('visible', unit === 'all' || unit === 'u6');
+  document.getElementById('u7-block').classList.toggle('visible', unit === 'all' || unit === 'u7');
+  document.querySelectorAll('[data-unit]').forEach(s => {
+    s.style.display = (unit === 'all' || s.dataset.unit === unit) ? '' : 'none';
+  });
+  document.getElementById('search-input').value = '';
+  document.querySelectorAll('.entry').forEach(e => e.style.display = '');
+  document.getElementById('no-results').style.display = 'none';
+}
+
+function jump(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const block = el.closest('.unit-block');
+  if (block && !block.classList.contains('visible')) {
+    const uid = block.id.replace('-block', '');
+    const pill = document.querySelector(`.pill[onclick*="${uid}"]`);
+    showUnit(uid, pill);
+  }
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const link = document.querySelector(`.nav-link[onclick*="${id}"]`);
+  if (link) link.classList.add('active');
+}
+
+function filterEntries(q) {
+  q = q.toLowerCase().trim();
+  if (!q) { showUnit(activeUnit); return; }
+  document.getElementById('u6-block').classList.add('visible');
+  document.getElementById('u7-block').classList.add('visible');
+  let any = false;
+  document.querySelectorAll('.entry').forEach(e => {
+    const show = e.textContent.toLowerCase().includes(q);
+    e.style.display = show ? '' : 'none';
+    if (show) any = true;
+  });
+  document.getElementById('no-results').style.display = any ? 'none' : 'block';
+}
+
+// Scroll spy
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      const lnk = document.querySelector(`.nav-link[onclick*="${id}"]`);
+      if (lnk) lnk.classList.add('active');
+    }
+  });
+}, { threshold: 0.25, rootMargin: '-15% 0px -65% 0px' });
+
+document.querySelectorAll('.entry[id]').forEach(e => obs.observe(e));
+</script>
+</body>
+</html>
