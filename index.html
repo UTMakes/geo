@@ -433,8 +433,8 @@ header {
   <div class="header-top">
     <div>
       <div class="header-eyebrow">Geometry · Reference</div>
-      <div class="header-title"><em>Dictionary</em> of<br>Transformations &amp; Similarity</div>
-      <div class="header-subtitle">Units 6 &amp; 7 · Complete Term Reference with Diagrams</div>
+      <div class="header-title"><em>Dictionary</em> of<br>Geometry Terms</div>
+      <div class="header-subtitle">MP1 · Units 6 &amp; 7 · Complete Term Reference with Diagrams</div>
     </div>
     <div class="header-controls">
       <div class="search-box">
@@ -443,6 +443,7 @@ header {
       </div>
       <div class="unit-pills">
         <button class="pill active" onclick="showUnit('all',this)">All</button>
+        <button class="pill" onclick="showUnit('ump1',this)">MP1</button>
         <button class="pill" onclick="showUnit('u6',this)">Unit 6</button>
         <button class="pill" onclick="showUnit('u7',this)">Unit 7</button>
       </div>
@@ -452,6 +453,16 @@ header {
 
 <div class="layout">
   <nav class="sidebar">
+    <div data-unit="ump1">
+      <div class="sidebar-unit-label">MP1</div>
+      <a class="nav-link" onclick="jump('point-line')"><span class="nav-dot"></span>Point &amp; Line</a>
+      <a class="nav-link" onclick="jump('ray-angle')"><span class="nav-dot"></span>Ray &amp; Angle</a>
+      <a class="nav-link" onclick="jump('angle-pairs')"><span class="nav-dot"></span>Angle Pairs</a>
+      <a class="nav-link" onclick="jump('parallel-transversal')"><span class="nav-dot"></span>Parallel Lines</a>
+      <a class="nav-link" onclick="jump('bisectors')"><span class="nav-dot"></span>Bisectors &amp; ⊥</a>
+      <a class="nav-link" onclick="jump('directed-segments')"><span class="nav-dot"></span>Directed Segments</a>
+    </div>
+    <div class="sidebar-divider"></div>
     <div data-unit="u6">
       <div class="sidebar-unit-label">Unit 6</div>
       <a class="nav-link" onclick="jump('rigid-motion')"><span class="nav-dot"></span>Rigid Motion</a>
@@ -473,6 +484,274 @@ header {
   </nav>
 
   <main class="content">
+
+    <!-- ══ MP1 ══ -->
+    <div class="unit-block visible" id="ump1-block">
+      <div class="unit-heading">
+        <div class="unit-number" style="font-size:48px;letter-spacing:-2px">MP1</div>
+        <div>
+          <div class="unit-tag">Unit 1 · L2, L3, L4, L5, L7, L9</div>
+          <div class="unit-name">Foundations of Geometry</div>
+        </div>
+      </div>
+
+      <!-- POINT & LINE -->
+      <div class="entry" id="point-line">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L2 · Basic Building Blocks</div>
+            <div class="entry-term">Point, Line &amp; Line Segment</div>
+            <div class="entry-pos">noun · foundational undefined terms</div>
+            <div class="entry-def">A <strong>point</strong> marks an exact location (no size). A <strong>line</strong> extends infinitely in both directions through at least two points. A <strong>line segment</strong> is the part of a line between two endpoints. <strong>Collinear points</strong> all lie on the same line. <strong>Congruent</strong> segments have equal length (symbol: ≅).</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="10" y1="30" x2="170" y2="30" stroke="#50d4c0" stroke-width="1.5"/>
+              <circle cx="50" cy="30" r="4" fill="#f0c060"/>
+              <circle cx="130" cy="30" r="4" fill="#f0c060"/>
+              <text x="50" y="20" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="middle">A</text>
+              <text x="130" y="20" font-family="Space Mono" font-size="9" fill="#f0c060" text-anchor="middle">B</text>
+              <text x="90" y="48" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">line AB</text>
+              <line x1="30" y1="80" x2="150" y2="80" stroke="#f0c060" stroke-width="2.5"/>
+              <circle cx="30" cy="80" r="4" fill="#f0c060"/>
+              <circle cx="150" cy="80" r="4" fill="#f0c060"/>
+              <text x="90" y="100" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">segment CD</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Notation</div>
+            <table class="ntable">
+              <tr><td class="nf">Line AB</td><td class="narrow">→</td><td class="nl">↔ over AB (arrows both ends)</td></tr>
+              <tr><td class="nf">Segment CD</td><td class="narrow">→</td><td class="nl">bar over CD (no arrows)</td></tr>
+              <tr><td class="nf">CD ≅ EF</td><td class="narrow">→</td><td class="nl">segments have equal length</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Segment Addition Postulate</div>
+            <div class="example-text">If B is between A and C, then <strong>AB + BC = AC</strong>.<br>Example: AB = 5, BC = 8 → AC = <strong>13</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAY & ANGLE -->
+      <div class="entry" id="ray-angle">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L3 · Rays &amp; Angles</div>
+            <div class="entry-term">Ray, Angle &amp; Vertex</div>
+            <div class="entry-pos">noun · geometric figures</div>
+            <div class="entry-def">A <strong>ray</strong> starts at an endpoint and extends infinitely in one direction. An <strong>angle</strong> is formed by two rays sharing a common <strong>vertex</strong>. Angles are measured in degrees.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#50d4c0"/></marker></defs>
+              <line x1="60" y1="95" x2="165" y2="40" stroke="#50d4c0" stroke-width="1.5" marker-end="url(#arr)"/>
+              <line x1="60" y1="95" x2="165" y2="95" stroke="#f0c060" stroke-width="1.5" marker-end="url(#arr)"/>
+              <circle cx="60" cy="95" r="4" fill="#a89fd8"/>
+              <text x="50" y="110" font-family="Space Mono" font-size="9" fill="#a89fd8">V</text>
+              <path d="M80,95 A20,20 0 0,0 73,78" stroke="#a89fd8" stroke-width="1.2" fill="none"/>
+              <text x="88" y="84" font-family="Space Mono" font-size="9" fill="#a89fd8">θ</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Acute Angle</div>
+              <div class="sub-def">Between <strong>0° and 90°</strong></div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Right Angle</div>
+              <div class="sub-def">Exactly <strong>90°</strong> (marked with a square)</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Obtuse Angle</div>
+              <div class="sub-def">Between <strong>90° and 180°</strong></div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Straight Angle</div>
+              <div class="sub-def">Exactly <strong>180°</strong> — a straight line</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Reflex Angle</div>
+              <div class="sub-def">Between <strong>180° and 360°</strong></div>
+            </div>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Angle Addition Postulate</div>
+            <div class="example-text">If ray BD is in the interior of ∠ABC, then <strong>m∠ABD + m∠DBC = m∠ABC</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANGLE PAIRS -->
+      <div class="entry" id="angle-pairs">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L4 · Angle Relationships</div>
+            <div class="entry-term">Angle Pairs</div>
+            <div class="entry-pos">noun phrase · special angle relationships</div>
+            <div class="entry-def">Pairs of angles defined by their position or sum. Key relationships are <strong>supplementary</strong> (sum = 180°), <strong>complementary</strong> (sum = 90°), <strong>adjacent</strong> (share a side &amp; vertex), and <strong>vertical</strong> (across an intersection — always congruent).</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="90" y1="10" x2="90" y2="110" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="10" y1="60" x2="170" y2="60" stroke="#50d4c0" stroke-width="1.5"/>
+              <text x="115" y="40" font-family="Space Mono" font-size="9" fill="#f0c060">1</text>
+              <text x="60" y="40" font-family="Space Mono" font-size="9" fill="#a89fd8">2</text>
+              <text x="60" y="85" font-family="Space Mono" font-size="9" fill="#f0c060">3</text>
+              <text x="115" y="85" font-family="Space Mono" font-size="9" fill="#a89fd8">4</text>
+              <text x="90" y="118" font-family="Space Mono" font-size="7" fill="#7a7890" text-anchor="middle">∠1≅∠3, ∠2≅∠4 (vertical)</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Supplementary Angles</div>
+              <div class="sub-def">Two angles whose measures add to <strong>180°</strong>.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Linear Angle Pair</div>
+              <div class="sub-def">Adjacent angles that form a <strong>straight line</strong> — always supplementary.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Complementary Angles</div>
+              <div class="sub-def">Two angles whose measures add to <strong>90°</strong>.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Adjacent Angles</div>
+              <div class="sub-def">Share a <strong>common vertex and side</strong>, with no overlap.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Vertical Angles</div>
+              <div class="sub-def">Opposite angles formed by two intersecting lines. Always <strong>congruent</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARALLEL LINES & TRANSVERSAL -->
+      <div class="entry" id="parallel-transversal">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L5 · Parallel Lines &amp; Transversals</div>
+            <div class="entry-term">Parallel Lines &amp; Transversal</div>
+            <div class="entry-pos">noun phrase · symbol: ∥</div>
+            <div class="entry-def"><strong>Parallel lines</strong> are coplanar lines that never intersect (same slope). A <strong>transversal</strong> is a line that crosses two or more other lines, creating 8 angles with special relationships.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="10" y1="40" x2="170" y2="40" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="10" y1="90" x2="170" y2="90" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="50" y1="10" x2="130" y2="120" stroke="#f0c060" stroke-width="1.5"/>
+              <text x="160" y="36" font-family="Space Mono" font-size="9" fill="#50d4c0">ℓ₁</text>
+              <text x="160" y="86" font-family="Space Mono" font-size="9" fill="#50d4c0">ℓ₂</text>
+              <text x="134" y="118" font-family="Space Mono" font-size="9" fill="#f0c060">t</text>
+              <text x="90" y="120" font-family="Space Mono" font-size="7" fill="#a89fd8" text-anchor="middle">ℓ₁ ∥ ℓ₂</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Congruent Angle Pairs (≅)</div>
+            <table class="ntable">
+              <tr><td class="nf">Vertical angles</td><td class="narrow">→</td><td class="nl">across the intersection</td></tr>
+              <tr><td class="nf">Alternate interior</td><td class="narrow">→</td><td class="nl">inside, opposite sides of transversal</td></tr>
+              <tr><td class="nf">Alternate exterior</td><td class="narrow">→</td><td class="nl">outside, opposite sides of transversal</td></tr>
+              <tr><td class="nf">Corresponding</td><td class="narrow">→</td><td class="nl">same position at each intersection</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Supplementary Angle Pairs (sum = 180°)</div>
+            <div class="example-text">
+              <strong>Linear pair</strong> — adjacent angles at any intersection<br>
+              <strong>Same-side interior</strong> (co-interior) — inside, same side of transversal<br>
+              <strong>Same-side exterior</strong> — outside, same side of transversal
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BISECTORS & PERPENDICULAR -->
+      <div class="entry" id="bisectors">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7 · Bisectors &amp; Perpendicular Lines</div>
+            <div class="entry-term">Midpoint, Bisectors &amp; Perpendicular Lines</div>
+            <div class="entry-pos">noun phrase · symbol for perpendicular: ⊥</div>
+            <div class="entry-def">A <strong>midpoint</strong> divides a segment into two equal halves. A <strong>segment bisector</strong> passes through the midpoint. An <strong>angle bisector</strong> divides an angle into two congruent angles. <strong>Perpendicular lines</strong> intersect at 90°. A <strong>perpendicular bisector</strong> is both perpendicular to and bisects a segment.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="60" x2="160" y2="60" stroke="#50d4c0" stroke-width="2"/>
+              <circle cx="90" cy="60" r="5" fill="#f0c060"/>
+              <line x1="90" y1="15" x2="90" y2="105" stroke="#a89fd8" stroke-width="1.5"/>
+              <rect x="90" y="60" width="9" height="9" fill="none" stroke="#a89fd8" stroke-width="1.2"/>
+              <text x="25" y="53" font-family="Space Mono" font-size="9" fill="#50d4c0">A</text>
+              <text x="155" y="53" font-family="Space Mono" font-size="9" fill="#50d4c0">B</text>
+              <text x="94" y="53" font-family="Space Mono" font-size="9" fill="#f0c060">M</text>
+              <text x="95" y="110" font-family="Space Mono" font-size="7" fill="#a89fd8">⊥ bisector</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Midpoint Formula</div>
+              <div class="sub-def">M = <strong>((x₁+x₂)/2, (y₁+y₂)/2)</strong> — average of coordinates.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Perpendicular Lines</div>
+              <div class="sub-def">Slopes are <strong>negative reciprocals</strong>: m₁ · m₂ = −1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIRECTED SEGMENTS -->
+      <div class="entry" id="directed-segments">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L9 · Directed Segments</div>
+            <div class="entry-term">Directed Segments &amp; Partitioning</div>
+            <div class="entry-pos">noun phrase · coordinate geometry</div>
+            <div class="entry-def">A <strong>directed segment</strong> is a segment with a specified direction (from point A to point B). <strong>Partitioning</strong> means finding a point that divides the segment in a given ratio.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+              <defs><marker id="da" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f0c060"/></marker></defs>
+              <line x1="20" y1="40" x2="160" y2="40" stroke="#50d4c0" stroke-width="1.5" marker-end="url(#da)"/>
+              <circle cx="20" cy="40" r="4" fill="#50d4c0"/>
+              <circle cx="160" cy="40" r="4" fill="#50d4c0"/>
+              <circle cx="76" cy="40" r="5" fill="#a89fd8"/>
+              <text x="14" y="32" font-family="Space Mono" font-size="9" fill="#50d4c0">A</text>
+              <text x="155" y="32" font-family="Space Mono" font-size="9" fill="#50d4c0">B</text>
+              <text x="73" y="30" font-family="Space Mono" font-size="9" fill="#a89fd8">P</text>
+              <text x="90" y="62" font-family="Space Mono" font-size="7" fill="#7a7890" text-anchor="middle">AP:PB = 2:3</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Partition Formula — Point P dividing AB in ratio m:n</div>
+            <table class="ntable">
+              <tr><td class="nf">x-coord</td><td class="narrow">=</td><td class="nl">x₁ + (m / (m+n)) · (x₂ − x₁)</td></tr>
+              <tr><td class="nf">y-coord</td><td class="narrow">=</td><td class="nl">y₁ + (m / (m+n)) · (y₂ − y₁)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">A(1, 2) to B(7, 8), ratio 1:2<br>
+            x = 1 + (1/3)(7−1) = 1 + 2 = <strong>3</strong><br>
+            y = 2 + (1/3)(8−2) = 2 + 2 = <strong>4</strong> → P = (3, 4)</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ump1-block -->
 
     <!-- ══ UNIT 6 ══ -->
     <div class="unit-block visible" id="u6-block">
@@ -945,6 +1224,7 @@ function showUnit(unit, btn) {
   activeUnit = unit;
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   if (btn) btn.classList.add('active');
+  document.getElementById('ump1-block').classList.toggle('visible', unit === 'all' || unit === 'ump1');
   document.getElementById('u6-block').classList.toggle('visible', unit === 'all' || unit === 'u6');
   document.getElementById('u7-block').classList.toggle('visible', unit === 'all' || unit === 'u7');
   document.querySelectorAll('[data-unit]').forEach(s => {
