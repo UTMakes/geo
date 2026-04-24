@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geometry Dictionary — Units 6 & 7</title>
+<title>Geometry Dictionary — Units 6, 7, 8 & 9</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -434,7 +434,7 @@ header {
     <div>
       <div class="header-eyebrow">Geometry · Reference</div>
       <div class="header-title"><em>Dictionary</em> of<br>Geometry Terms</div>
-      <div class="header-subtitle">MP1 · Units 6 &amp; 7 · Complete Term Reference with Diagrams</div>
+      <div class="header-subtitle">MP1 · Units 6, 7, 8 &amp; 9 · Complete Term Reference with Diagrams</div>
     </div>
     <div class="header-controls">
       <div class="search-box">
@@ -446,6 +446,8 @@ header {
         <button class="pill" onclick="showUnit('ump1',this)">MP1</button>
         <button class="pill" onclick="showUnit('u6',this)">Unit 6</button>
         <button class="pill" onclick="showUnit('u7',this)">Unit 7</button>
+        <button class="pill" onclick="showUnit('u8',this)">Unit 8</button>
+        <button class="pill" onclick="showUnit('u9',this)">Unit 9</button>
       </div>
     </div>
   </div>
@@ -478,8 +480,27 @@ header {
     <div data-unit="u7">
       <div class="sidebar-unit-label">Unit 7</div>
       <a class="nav-link" onclick="jump('similar-figures')"><span class="nav-dot"></span>Similar Figures</a>
+      <a class="nav-link" onclick="jump('altitude-leg')"><span class="nav-dot"></span>Altitude &amp; Leg Thm.</a>
+      <a class="nav-link" onclick="jump('proportions')"><span class="nav-dot"></span>Proportions</a>
       <a class="nav-link" onclick="jump('side-splitter')"><span class="nav-dot"></span>Side Splitter Thm.</a>
       <a class="nav-link" onclick="jump('midsegment')"><span class="nav-dot"></span>Midsegment Thm.</a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div data-unit="u8">
+      <div class="sidebar-unit-label">Unit 8</div>
+      <a class="nav-link" onclick="jump('trig-ratios')"><span class="nav-dot"></span>Trig Ratios</a>
+      <a class="nav-link" onclick="jump('inverse-trig')"><span class="nav-dot"></span>Inverse Trig</a>
+      <a class="nav-link" onclick="jump('elev-depression')"><span class="nav-dot"></span>Elev. &amp; Depression</a>
+      <a class="nav-link" onclick="jump('cofunctions')"><span class="nav-dot"></span>Co-functions</a>
+      <a class="nav-link" onclick="jump('special-triangles')"><span class="nav-dot"></span>Special Triangles</a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div data-unit="u9">
+      <div class="sidebar-unit-label">Unit 9</div>
+      <a class="nav-link" onclick="jump('circle-parts')"><span class="nav-dot"></span>Circle Parts</a>
+      <a class="nav-link" onclick="jump('inscribed-angles')"><span class="nav-dot"></span>Inscribed Angles</a>
+      <a class="nav-link" onclick="jump('circle-angles')"><span class="nav-dot"></span>Inside/Outside Angles</a>
+      <a class="nav-link" onclick="jump('inscribed-quads')"><span class="nav-dot"></span>Inscribed Quads</a>
     </div>
   </nav>
 
@@ -1079,7 +1100,7 @@ header {
       <div class="unit-heading">
         <div class="unit-number">7</div>
         <div>
-          <div class="unit-tag">Unit 7 · L1, L3, L4</div>
+          <div class="unit-tag">Unit 7 · L1, L3, L4, L5, L6, L8</div>
           <div class="unit-name">Similar Figures &amp; Proportionality</div>
         </div>
       </div>
@@ -1118,6 +1139,83 @@ header {
               <strong>AA ~</strong> — two pairs of ≅ angles → similar<br>
               <strong>SAS ~</strong> — two sides proportional + included angle ≅<br>
               <strong>SSS ~</strong> — all three pairs of sides proportional
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALTITUDE & LEG THEOREMS -->
+      <div class="entry" id="altitude-leg">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L5 · Altitude &amp; Leg Theorems</div>
+            <div class="entry-term">Altitude &amp; Leg Theorems</div>
+            <div class="entry-pos">noun phrase · right triangle geometric means</div>
+            <div class="entry-def">When the <strong>altitude</strong> is drawn from the right angle to the hypotenuse of a right triangle, it creates two smaller triangles — all three triangles are <strong>similar</strong>, producing geometric mean relationships.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,105 160,105 80,20" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="80" y1="20" x2="80" y2="105" stroke="#f0c060" stroke-width="1.8"/>
+              <rect x="80" y="96" width="9" height="9" fill="none" stroke="#f0c060" stroke-width="1.2"/>
+              <text x="13" y="113" font-family="Space Mono" font-size="8" fill="#50d4c0">A</text>
+              <text x="161" y="113" font-family="Space Mono" font-size="8" fill="#50d4c0">B</text>
+              <text x="78" y="15" font-family="Space Mono" font-size="8" fill="#50d4c0">C</text>
+              <text x="73" y="113" font-family="Space Mono" font-size="8" fill="#f0c060">D</text>
+              <text x="47" y="70" font-family="Space Mono" font-size="7" fill="#a89fd8" text-anchor="middle">h</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">In right △ABC with altitude CD to hypotenuse AB</div>
+            <table class="ntable">
+              <tr><td class="nf">Altitude Theorem</td><td class="narrow">→</td><td class="nl">CD² = AD · DB &nbsp;(altitude is geometric mean of the two segments)</td></tr>
+              <tr class="nsep"><td class="nf">Leg Theorem</td><td class="narrow">→</td><td class="nl">AC² = AD · AB &nbsp;and&nbsp; BC² = DB · AB</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">
+              AD = 4, DB = 9. Find altitude CD.<br>
+              CD² = 4 · 9 = 36 &nbsp;→&nbsp; CD = <strong>6</strong><br><br>
+              Find leg AC: AC² = 4 · (4+9) = 4 · 13 = 52 &nbsp;→&nbsp; AC = <strong>√52 ≈ 7.2</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROPORTIONS -->
+      <div class="entry" id="proportions">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L8 · Proportions</div>
+            <div class="entry-term">Product of Means = Product of Extremes</div>
+            <div class="entry-pos">theorem · cross-multiplication property</div>
+            <div class="entry-def">In any proportion <strong>a/b = c/d</strong>, the <strong>means</strong> (b and c, the inner terms) and the <strong>extremes</strong> (a and d, the outer terms) satisfy: <strong>a · d = b · c</strong>. This is the basis for cross-multiplication.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+              <text x="90" y="30" font-family="Libre Baskerville" font-size="22" fill="#e8e6f0" text-anchor="middle">a/b = c/d</text>
+              <text x="90" y="55" font-family="Space Mono" font-size="10" fill="#7a7890" text-anchor="middle">↓ cross multiply</text>
+              <text x="90" y="80" font-family="Libre Baskerville" font-size="20" fill="#f0c060" text-anchor="middle">a · d = b · c</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Proportion Terms</div>
+            <table class="ntable">
+              <tr><td class="nf">Extremes</td><td class="narrow">→</td><td class="nl">the outer terms: <strong>a</strong> and <strong>d</strong> in a/b = c/d</td></tr>
+              <tr><td class="nf">Means</td><td class="narrow">→</td><td class="nl">the inner terms: <strong>b</strong> and <strong>c</strong> in a/b = c/d</td></tr>
+              <tr class="nsep"><td class="nf">Property</td><td class="narrow">→</td><td class="nl">product of means = product of extremes</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples</div>
+            <div class="example-text">
+              3/x = 6/10 &nbsp;→&nbsp; 6x = 30 &nbsp;→&nbsp; x = <strong>5</strong><br>
+              x/4 = 9/12 &nbsp;→&nbsp; 12x = 36 &nbsp;→&nbsp; x = <strong>3</strong>
             </div>
           </div>
         </div>
@@ -1213,6 +1311,420 @@ header {
 
     </div><!-- /u7-block -->
 
+    <!-- ══ UNIT 8 ══ -->
+    <div class="unit-block" id="u8-block">
+      <div class="unit-heading">
+        <div class="unit-number">8</div>
+        <div>
+          <div class="unit-tag">Unit 8 · L1, L4, L5, L6, L7</div>
+          <div class="unit-name">Trigonometry &amp; Right Triangles</div>
+        </div>
+      </div>
+
+      <!-- TRIG RATIOS -->
+      <div class="entry" id="trig-ratios">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L1 · The 3 Trig Ratios</div>
+            <div class="entry-term">SOHCAHTOA</div>
+            <div class="entry-pos">mnemonic · sine, cosine, tangent</div>
+            <div class="entry-def">The three basic ratios that relate an <strong>acute angle</strong> in a right triangle to two of its sides. <strong>SOH</strong> — Sin = Opp/Hyp. <strong>CAH</strong> — Cos = Adj/Hyp. <strong>TOA</strong> — Tan = Opp/Adj.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,100 20,20 160,100" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <rect x="20" y="91" width="9" height="9" fill="none" stroke="#50d4c0" stroke-width="1.2"/>
+              <text x="10" y="15" font-family="Space Mono" font-size="9" fill="#f0c060">A</text>
+              <text x="3" y="108" font-family="Space Mono" font-size="9" fill="#50d4c0">B</text>
+              <text x="163" y="108" font-family="Space Mono" font-size="9" fill="#50d4c0">C</text>
+              <text x="88" y="56" font-family="Space Mono" font-size="8" fill="#a89fd8" text-anchor="middle">Hyp</text>
+              <text x="12" y="62" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">Opp</text>
+              <text x="90" y="112" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">Adj</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">The Three Ratios — angle θ</div>
+            <table class="ntable">
+              <tr><td class="nf">sin θ</td><td class="narrow">=</td><td class="nl">opposite / hypotenuse</td></tr>
+              <tr><td class="nf">cos θ</td><td class="narrow">=</td><td class="nl">adjacent / hypotenuse</td></tr>
+              <tr><td class="nf">tan θ</td><td class="narrow">=</td><td class="nl">opposite / adjacent</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Finding a Missing Side (L3)</div>
+            <div class="example-text">
+              Angle = 35°, hypotenuse = 10, find opposite side.<br>
+              sin 35° = x / 10 &nbsp;→&nbsp; x = 10 · sin 35° ≈ <strong>5.74</strong><br><br>
+              Angle = 50°, adjacent = 7, find opposite side.<br>
+              tan 50° = x / 7 &nbsp;→&nbsp; x = 7 · tan 50° ≈ <strong>8.34</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVERSE TRIG -->
+      <div class="entry" id="inverse-trig">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L4 · Inverse Trig Ratios</div>
+            <div class="entry-term">Inverse Trig Ratios</div>
+            <div class="entry-pos">function · sin⁻¹, cos⁻¹, tan⁻¹</div>
+            <div class="entry-def">Used to find a <strong>missing angle</strong> when you know two sides of a right triangle. The inverse "undoes" the trig ratio and returns an angle in degrees.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,85 20,20 160,85" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <rect x="20" y="76" width="9" height="9" fill="none" stroke="#50d4c0" stroke-width="1.2"/>
+              <path d="M 33 85 A 14 14 0 0 0 25.5 73" stroke="#f0c060" stroke-width="1.2" fill="none"/>
+              <text x="38" y="80" font-family="Space Mono" font-size="8" fill="#f0c060">θ = ?</text>
+              <text x="75" y="48" font-family="Space Mono" font-size="9" fill="#a89fd8" text-anchor="middle">13</text>
+              <text x="12" y="54" font-family="Space Mono" font-size="9" fill="#50d4c0" text-anchor="middle">5</text>
+              <text x="90" y="97" font-family="Space Mono" font-size="9" fill="#50d4c0" text-anchor="middle">12</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Inverse Functions</div>
+            <table class="ntable">
+              <tr><td class="nf">θ = sin⁻¹(opp/hyp)</td><td class="narrow">→</td><td class="nl">finds the angle from sin ratio</td></tr>
+              <tr><td class="nf">θ = cos⁻¹(adj/hyp)</td><td class="narrow">→</td><td class="nl">finds the angle from cos ratio</td></tr>
+              <tr><td class="nf">θ = tan⁻¹(opp/adj)</td><td class="narrow">→</td><td class="nl">finds the angle from tan ratio</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example — Find the Missing Angle</div>
+            <div class="example-text">
+              Opposite = 5, Hypotenuse = 13<br>
+              sin θ = 5/13 &nbsp;→&nbsp; θ = sin⁻¹(5/13) ≈ <strong>22.6°</strong><br><br>
+              Adjacent = 12, Hypotenuse = 13<br>
+              cos θ = 12/13 &nbsp;→&nbsp; θ = cos⁻¹(12/13) ≈ <strong>22.6°</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ELEVATION & DEPRESSION -->
+      <div class="entry" id="elev-depression">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L5 · Angle of Elevation &amp; Depression</div>
+            <div class="entry-term">Angle of Elevation &amp; Depression</div>
+            <div class="entry-pos">noun phrase · applied trig</div>
+            <div class="entry-def">Both are measured from a <strong>horizontal line</strong>. <strong>Elevation</strong>: the angle looking <strong>up</strong> to an object above the horizontal. <strong>Depression</strong>: the angle looking <strong>down</strong> to an object below the horizontal.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="10" y1="65" x2="170" y2="65" stroke="#3a3850" stroke-width="1" stroke-dasharray="4,3"/>
+              <line x1="30" y1="65" x2="150" y2="20" stroke="#50d4c0" stroke-width="1.8"/>
+              <line x1="30" y1="65" x2="150" y2="110" stroke="#a89fd8" stroke-width="1.8"/>
+              <path d="M 55 65 A 25 25 0 0 1 47 48" stroke="#f0c060" stroke-width="1.2" fill="none"/>
+              <text x="60" y="58" font-family="Space Mono" font-size="8" fill="#f0c060">elev.</text>
+              <path d="M 55 65 A 25 25 0 0 0 47 82" stroke="#a89fd8" stroke-width="1.2" fill="none"/>
+              <text x="60" y="80" font-family="Space Mono" font-size="8" fill="#a89fd8">dep.</text>
+              <circle cx="150" cy="20" r="5" fill="#50d4c0"/>
+              <circle cx="150" cy="110" r="5" fill="#a89fd8"/>
+              <circle cx="30" cy="65" r="4" fill="#f0c060"/>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Angle of Elevation</div>
+              <div class="sub-def">Measured <strong>upward</strong> from horizontal to the line of sight. Used when looking up at a building, mountain, plane, etc.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Angle of Depression</div>
+              <div class="sub-def">Measured <strong>downward</strong> from horizontal to the line of sight. Used when looking down from a cliff, tower, window, etc.</div>
+            </div>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Key Fact</div>
+            <div class="example-text">The angle of elevation from point A to point B <strong>equals</strong> the angle of depression from point B to point A — they are <strong>alternate interior angles</strong> formed by a transversal cutting parallel horizontal lines.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CO-FUNCTIONS -->
+      <div class="entry" id="cofunctions">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L6 · Co-functions</div>
+            <div class="entry-term">Co-functions of Sin &amp; Cos</div>
+            <div class="entry-pos">noun phrase · complementary functions</div>
+            <div class="entry-def">Sin and cos are <strong>co-functions</strong>: the sine of an angle equals the cosine of its <strong>complement</strong> (90° minus the angle), and vice versa.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,85 20,20 160,85" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <rect x="20" y="76" width="9" height="9" fill="none" stroke="#50d4c0" stroke-width="1.2"/>
+              <path d="M 33 85 A 14 14 0 0 0 25.5 73" stroke="#f0c060" stroke-width="1.2" fill="none"/>
+              <text x="42" y="80" font-family="Space Mono" font-size="7" fill="#f0c060">θ</text>
+              <path d="M 23 33 A 10 10 0 0 1 30 28" stroke="#a89fd8" stroke-width="1.2" fill="none"/>
+              <text x="32" y="28" font-family="Space Mono" font-size="7" fill="#a89fd8">90°−θ</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Co-function Identities</div>
+            <table class="ntable">
+              <tr><td class="nf">sin θ</td><td class="narrow">=</td><td class="nl">cos (90° − θ)</td></tr>
+              <tr><td class="nf">cos θ</td><td class="narrow">=</td><td class="nl">sin (90° − θ)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples</div>
+            <div class="example-text">
+              sin 30° = cos 60° = <strong>0.5</strong><br>
+              cos 25° = sin 65° ≈ <strong>0.906</strong><br><br>
+              If sin θ = cos 40°, then θ = <strong>50°</strong> (since 90° − 40° = 50°)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIAL RIGHT TRIANGLES -->
+      <div class="entry" id="special-triangles">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7 · Special Right Triangles</div>
+            <div class="entry-term">Special Right Triangles</div>
+            <div class="entry-pos">noun phrase · 45-45-90 and 30-60-90</div>
+            <div class="entry-def">Two right triangles with <strong>fixed side ratios</strong> that let you find all sides from just one, without using trig. Memorizing these saves significant time on exams.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="15,105 15,30 75,105" stroke="#f0c060" stroke-width="1.5" fill="rgba(240,192,96,0.08)"/>
+              <rect x="15" y="96" width="9" height="9" fill="none" stroke="#f0c060" stroke-width="1.2"/>
+              <text x="10" y="25" font-family="Space Mono" font-size="7" fill="#f0c060">45°</text>
+              <text x="54" y="118" font-family="Space Mono" font-size="7" fill="#f0c060">45°</text>
+              <text x="36" y="65" font-family="Space Mono" font-size="7" fill="#f0c060" text-anchor="middle">x√2</text>
+              <text x="8" y="72" font-family="Space Mono" font-size="7" fill="#f0c060">x</text>
+              <text x="40" y="118" font-family="Space Mono" font-size="7" fill="#f0c060">x</text>
+              <polygon points="100,105 100,30 165,105" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.08)"/>
+              <rect x="100" y="96" width="9" height="9" fill="none" stroke="#a89fd8" stroke-width="1.2"/>
+              <text x="94" y="25" font-family="Space Mono" font-size="7" fill="#a89fd8">60°</text>
+              <text x="143" y="118" font-family="Space Mono" font-size="7" fill="#a89fd8">30°</text>
+              <text x="128" y="65" font-family="Space Mono" font-size="7" fill="#a89fd8" text-anchor="middle">2x</text>
+              <text x="92" y="72" font-family="Space Mono" font-size="7" fill="#a89fd8">x√3</text>
+              <text x="126" y="118" font-family="Space Mono" font-size="7" fill="#a89fd8">x</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">45° – 45° – 90°</div>
+              <div class="sub-def">Sides in ratio <strong>1 : 1 : √2</strong><br><br>Legs are <strong>equal</strong>. Hypotenuse = leg · √2.<br>Reverse: leg = hyp / √2 = hyp · (√2/2)</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">30° – 60° – 90°</div>
+              <div class="sub-def">Sides in ratio <strong>1 : √3 : 2</strong><br><br>Short leg opposite 30°. Long leg = short · √3. Hypotenuse = short · 2.</div>
+            </div>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples</div>
+            <div class="example-text">
+              <strong>45-45-90:</strong> Leg = 5 → hypotenuse = 5√2 ≈ 7.07<br>
+              <strong>30-60-90:</strong> Short leg = 4 → long leg = 4√3 ≈ 6.93, hyp = 8
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /u8-block -->
+
+    <!-- ══ UNIT 9 ══ -->
+    <div class="unit-block" id="u9-block">
+      <div class="unit-heading">
+        <div class="unit-number">9</div>
+        <div>
+          <div class="unit-tag">Unit 9 · L1, L2, L3/4, L5</div>
+          <div class="unit-name">Circles</div>
+        </div>
+      </div>
+
+      <!-- CIRCLE PARTS -->
+      <div class="entry" id="circle-parts">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L1 · Circle Parts</div>
+            <div class="entry-term">Parts of a Circle</div>
+            <div class="entry-pos">noun phrase · fundamental vocabulary</div>
+            <div class="entry-def">A <strong>circle</strong> is the set of all points equidistant from a center. Understanding its parts — <strong>radius, diameter, chord, and arc</strong> — is essential for all circle theorems.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="65" r="55" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <circle cx="90" cy="65" r="3" fill="#f0c060"/>
+              <line x1="90" y1="65" x2="135" y2="30" stroke="#f0c060" stroke-width="1.5"/>
+              <text x="110" y="44" font-family="Space Mono" font-size="8" fill="#f0c060">radius</text>
+              <line x1="40" y1="100" x2="148" y2="38" stroke="#a89fd8" stroke-width="1.5"/>
+              <text x="148" y="36" font-family="Space Mono" font-size="8" fill="#a89fd8">chord</text>
+              <line x1="35" y1="65" x2="145" y2="65" stroke="#ff6b35" stroke-width="1.5"/>
+              <text x="148" y="68" font-family="Space Mono" font-size="8" fill="#ff6b35">diam.</text>
+              <path d="M 135 30 A 55 55 0 0 1 145 65" stroke="#50d4c0" stroke-width="3" fill="none"/>
+              <text x="152" y="46" font-family="Space Mono" font-size="8" fill="#50d4c0">arc</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Radius</div>
+              <div class="sub-def">Distance from center to any point on the circle. All radii of a circle are <strong>congruent</strong>.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Diameter</div>
+              <div class="sub-def">A chord passing through the center. <strong>d = 2r</strong>. The longest chord in any circle.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Chord</div>
+              <div class="sub-def">A line segment with <strong>both endpoints on</strong> the circle. The diameter is a special chord.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Arc</div>
+              <div class="sub-def">A portion of the circle's circumference. Measured in degrees. <strong>Minor arc</strong> &lt; 180°; <strong>major arc</strong> &gt; 180°.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSCRIBED ANGLES -->
+      <div class="entry" id="inscribed-angles">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L2 · Inscribed Angles &amp; Arcs</div>
+            <div class="entry-term">Inscribed Angles &amp; Intercepted Arcs</div>
+            <div class="entry-pos">noun phrase · circle angle theorems</div>
+            <div class="entry-def">An <strong>inscribed angle</strong> has its vertex <strong>on the circle</strong> and is formed by two chords. It equals <strong>half</strong> its intercepted arc. The <strong>intercepted arc</strong> is the arc that lies inside the angle.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="65" r="55" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <circle cx="90" cy="65" r="3" fill="#3a3850"/>
+              <circle cx="51" cy="107" r="4" fill="#f0c060"/>
+              <circle cx="45" cy="38" r="4" fill="#50d4c0"/>
+              <circle cx="145" cy="65" r="4" fill="#50d4c0"/>
+              <line x1="51" y1="107" x2="45" y2="38" stroke="#a89fd8" stroke-width="1.5"/>
+              <line x1="51" y1="107" x2="145" y2="65" stroke="#a89fd8" stroke-width="1.5"/>
+              <path d="M 45 38 A 55 55 0 0 1 145 65" stroke="#f0c060" stroke-width="3" fill="none"/>
+              <text x="55" y="102" font-family="Space Mono" font-size="8" fill="#f0c060">∠ = ½arc</text>
+              <text x="88" y="22" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">intercepted arc</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Key Theorems — L2</div>
+            <table class="ntable">
+              <tr><td class="nf">Inscribed Angle</td><td class="narrow">=</td><td class="nl">½ × intercepted arc</td></tr>
+              <tr><td class="nf">Parallel Chords</td><td class="narrow">→</td><td class="nl">intercept congruent arcs between them</td></tr>
+              <tr class="nsep"><td class="nf">Congruent Chords</td><td class="narrow">→</td><td class="nl">equal length; equidistant from center</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">
+              Intercepted arc = 80° → Inscribed angle = <strong>40°</strong><br>
+              Inscribed angle = 35° → Intercepted arc = <strong>70°</strong><br><br>
+              <strong>Special case:</strong> An inscribed angle that intercepts a semicircle (diameter) is always <strong>90°</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSIDE/OUTSIDE ANGLES -->
+      <div class="entry" id="circle-angles">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L3/4 · Inside and Outside Angles</div>
+            <div class="entry-term">Inside &amp; Outside Angle Rules</div>
+            <div class="entry-pos">noun phrase · chord and secant angle theorems</div>
+            <div class="entry-def">Angles formed by chords or secants relate to intercepted arcs. The <strong>location</strong> of the vertex (inside or outside the circle) determines the formula used.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="68" cy="60" r="48" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="25" y1="30" x2="112" y2="95" stroke="#a89fd8" stroke-width="1.5"/>
+              <line x1="20" y1="90" x2="116" y2="28" stroke="#a89fd8" stroke-width="1.5"/>
+              <circle cx="68" cy="60" r="4" fill="#f0c060"/>
+              <text x="72" y="57" font-family="Space Mono" font-size="7" fill="#f0c060">Inside</text>
+              <circle cx="155" cy="60" r="3" fill="#ff6b35"/>
+              <line x1="155" y1="60" x2="115" y2="25" stroke="#ff6b35" stroke-width="1.2"/>
+              <line x1="155" y1="60" x2="115" y2="88" stroke="#ff6b35" stroke-width="1.2"/>
+              <text x="138" y="58" font-family="Space Mono" font-size="7" fill="#ff6b35">Outside</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">The Two Rules</div>
+            <table class="ntable">
+              <tr><td class="nf">Inside angle</td><td class="narrow">=</td><td class="nl">½ · (arc₁ + arc₂) — average of intercepted arcs</td></tr>
+              <tr class="nsep"><td class="nf">Outside angle</td><td class="narrow">=</td><td class="nl">½ · (far arc − near arc) — half the difference</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples</div>
+            <div class="example-text">
+              <strong>Inside:</strong> Two chords cross. Arcs = 60° and 80°. Angle = ½(60+80) = <strong>70°</strong><br><br>
+              <strong>Outside:</strong> Two secants. Far arc = 130°, near arc = 50°. Angle = ½(130−50) = <strong>40°</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSCRIBED QUADRILATERALS -->
+      <div class="entry" id="inscribed-quads">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L5 · Inscribed Quadrilaterals</div>
+            <div class="entry-term">Inscribed Quadrilaterals</div>
+            <div class="entry-pos">noun phrase · cyclic quadrilateral</div>
+            <div class="entry-def">A quadrilateral with <strong>all four vertices on a circle</strong>. Also called a <em>cyclic quadrilateral</em>. The key theorem: <strong>opposite angles are supplementary</strong> (they add to 180°).</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="65" r="52" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <polygon points="90,13 142,90 55,117 38,30" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)"/>
+              <circle cx="90" cy="13" r="4" fill="#f0c060"/>
+              <circle cx="142" cy="90" r="4" fill="#f0c060"/>
+              <circle cx="55" cy="117" r="4" fill="#50d4c0"/>
+              <circle cx="38" cy="30" r="4" fill="#50d4c0"/>
+              <text x="90" y="8" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">A</text>
+              <text x="150" y="93" font-family="Space Mono" font-size="8" fill="#f0c060">B</text>
+              <text x="52" y="128" font-family="Space Mono" font-size="8" fill="#50d4c0">C</text>
+              <text x="25" y="30" font-family="Space Mono" font-size="8" fill="#50d4c0">D</text>
+              <text x="90" y="68" font-family="Space Mono" font-size="8" fill="#7a7890" text-anchor="middle">∠A+∠C=180°</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Inscribed Quadrilateral Theorem</div>
+            <table class="ntable">
+              <tr><td class="nf">∠A + ∠C</td><td class="narrow">=</td><td class="nl">180° (opposite angles)</td></tr>
+              <tr><td class="nf">∠B + ∠D</td><td class="narrow">=</td><td class="nl">180° (opposite angles)</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">
+              In cyclic quad ABCD: ∠A = 75°, ∠B = 110°<br>
+              ∠C = 180° − 75° = <strong>105°</strong><br>
+              ∠D = 180° − 110° = <strong>70°</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /u9-block -->
+
     <div class="no-results" id="no-results">No terms match your search.</div>
   </main>
 </div>
@@ -1227,6 +1739,8 @@ function showUnit(unit, btn) {
   document.getElementById('ump1-block').classList.toggle('visible', unit === 'all' || unit === 'ump1');
   document.getElementById('u6-block').classList.toggle('visible', unit === 'all' || unit === 'u6');
   document.getElementById('u7-block').classList.toggle('visible', unit === 'all' || unit === 'u7');
+  document.getElementById('u8-block').classList.toggle('visible', unit === 'all' || unit === 'u8');
+  document.getElementById('u9-block').classList.toggle('visible', unit === 'all' || unit === 'u9');
   document.querySelectorAll('[data-unit]').forEach(s => {
     s.style.display = (unit === 'all' || s.dataset.unit === unit) ? '' : 'none';
   });
@@ -1253,8 +1767,11 @@ function jump(id) {
 function filterEntries(q) {
   q = q.toLowerCase().trim();
   if (!q) { showUnit(activeUnit); return; }
+  document.getElementById('ump1-block').classList.add('visible');
   document.getElementById('u6-block').classList.add('visible');
   document.getElementById('u7-block').classList.add('visible');
+  document.getElementById('u8-block').classList.add('visible');
+  document.getElementById('u9-block').classList.add('visible');
   let any = false;
   document.querySelectorAll('.entry').forEach(e => {
     const show = e.textContent.toLowerCase().includes(q);
