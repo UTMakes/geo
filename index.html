@@ -434,7 +434,7 @@ header {
     <div>
       <div class="header-eyebrow">Geometry · Reference</div>
       <div class="header-title"><em>Dictionary</em> of<br>Geometry Terms</div>
-      <div class="header-subtitle">MP1 · Units 6, 7, 8 &amp; 9 · Complete Term Reference with Diagrams</div>
+      <div class="header-subtitle">MP1 · MP6 · Units 6–10 · Complete Term Reference with Diagrams</div>
     </div>
     <div class="header-controls">
       <div class="search-box">
@@ -448,6 +448,7 @@ header {
         <button class="pill" onclick="showUnit('u7',this)">Unit 7</button>
         <button class="pill" onclick="showUnit('u8',this)">Unit 8</button>
         <button class="pill" onclick="showUnit('u9',this)">Unit 9</button>
+        <button class="pill" onclick="showUnit('u10',this)">Unit 10</button>
       </div>
     </div>
   </div>
@@ -501,6 +502,20 @@ header {
       <a class="nav-link" onclick="jump('inscribed-angles')"><span class="nav-dot"></span>Inscribed Angles</a>
       <a class="nav-link" onclick="jump('circle-angles')"><span class="nav-dot"></span>Inside/Outside Angles</a>
       <a class="nav-link" onclick="jump('inscribed-quads')"><span class="nav-dot"></span>Inscribed Quads</a>
+      <a class="nav-link" onclick="jump('segment-lengths')"><span class="nav-dot"></span>Segment Lengths</a>
+      <a class="nav-link" onclick="jump('tangent-rules')"><span class="nav-dot"></span>Tangent Rules</a>
+      <a class="nav-link" onclick="jump('circle-proofs')"><span class="nav-dot"></span>Circle Proofs</a>
+      <a class="nav-link" onclick="jump('circle-equation')"><span class="nav-dot"></span>Equation of a Circle</a>
+      <a class="nav-link" onclick="jump('arc-sector')"><span class="nav-dot"></span>Arc Length &amp; Sector</a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div data-unit="u10">
+      <div class="sidebar-unit-label">Unit 10</div>
+      <a class="nav-link" onclick="jump('area-formulas')"><span class="nav-dot"></span>Area Formulas</a>
+      <a class="nav-link" onclick="jump('composite-figures')"><span class="nav-dot"></span>Composite Figures</a>
+      <a class="nav-link" onclick="jump('cross-sections')"><span class="nav-dot"></span>Cross Sections &amp; 3D</a>
+      <a class="nav-link" onclick="jump('volume-formulas')"><span class="nav-dot"></span>Volume Formulas</a>
+      <a class="nav-link" onclick="jump('density')"><span class="nav-dot"></span>Density Formula</a>
     </div>
   </nav>
 
@@ -1543,7 +1558,7 @@ header {
       <div class="unit-heading">
         <div class="unit-number">9</div>
         <div>
-          <div class="unit-tag">Unit 9 · L1, L2, L3/4, L5</div>
+          <div class="unit-tag">Unit 9 · L1–L9, L11–L13</div>
           <div class="unit-name">Circles</div>
         </div>
       </div>
@@ -1723,7 +1738,426 @@ header {
         </div>
       </div>
 
+      <!-- SEGMENT LENGTHS -->
+      <div class="entry" id="segment-lengths">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L6 · Length of Segments</div>
+            <div class="entry-term">Length of Segments Rules</div>
+            <div class="entry-pos">noun phrase · chord &amp; secant segment theorems</div>
+            <div class="entry-def">When chords, secants, or tangents intersect inside or outside a circle, their segment lengths follow specific <strong>product rules</strong> based on where the intersection occurs.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="85" cy="60" r="48" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="40" y1="30" x2="140" y2="95" stroke="#a89fd8" stroke-width="1.5"/>
+              <line x1="45" y1="95" x2="135" y2="28" stroke="#f0c060" stroke-width="1.5"/>
+              <circle cx="85" cy="60" r="3" fill="#ff6b35"/>
+              <text x="68" y="52" font-family="Space Mono" font-size="7" fill="#ff6b35">P</text>
+              <text x="36" y="26" font-family="Space Mono" font-size="8" fill="#a89fd8">a</text>
+              <text x="138" y="100" font-family="Space Mono" font-size="8" fill="#a89fd8">b</text>
+              <text x="40" y="100" font-family="Space Mono" font-size="8" fill="#f0c060">c</text>
+              <text x="135" y="26" font-family="Space Mono" font-size="8" fill="#f0c060">d</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Segment Rules by Location</div>
+            <table class="ntable">
+              <tr><td class="nf">Chords inside circle</td><td class="narrow">→</td><td class="nl">a · b = c · d &nbsp;(products of each chord's parts)</td></tr>
+              <tr><td class="nf">Two secants outside</td><td class="narrow">→</td><td class="nl">whole · external = whole · external</td></tr>
+              <tr class="nsep"><td class="nf">Tangent &amp; secant outside</td><td class="narrow">→</td><td class="nl">tangent² = whole secant · external part</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example — Intersecting Chords</div>
+            <div class="example-text">Chords cross inside circle. Segments: 3 &amp; x on one chord, 4 &amp; 6 on the other.<br>3 · x = 4 · 6 &nbsp;→&nbsp; 3x = 24 &nbsp;→&nbsp; x = <strong>8</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TANGENT RULES -->
+      <div class="entry" id="tangent-rules">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L7 · Tangent Circle Rules</div>
+            <div class="entry-term">Tangent &amp; Perpendicular Bisecting Chord Rules</div>
+            <div class="entry-pos">noun phrase · tangent-radius theorems</div>
+            <div class="entry-def">A <strong>tangent</strong> touches the circle at exactly one point. A <strong>perpendicular bisector</strong> of any chord passes through the circle's center.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="85" cy="60" r="45" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <circle cx="85" cy="60" r="3" fill="#3a3850"/>
+              <line x1="130" y1="15" x2="130" y2="105" stroke="#f0c060" stroke-width="2"/>
+              <line x1="85" y1="60" x2="130" y2="60" stroke="#a89fd8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <rect x="121" y="51" width="9" height="9" fill="none" stroke="#a89fd8" stroke-width="1.2"/>
+              <circle cx="130" cy="60" r="4" fill="#f0c060"/>
+              <text x="133" y="58" font-family="Space Mono" font-size="7" fill="#f0c060">T</text>
+              <text x="133" y="30" font-family="Space Mono" font-size="8" fill="#f0c060">tangent</text>
+              <text x="98" y="55" font-family="Space Mono" font-size="7" fill="#a89fd8">radius ⊥</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Tangent-Radius Rule</div>
+              <div class="sub-def">A tangent is always <strong>perpendicular (⊥)</strong> to the radius drawn to the point of tangency.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Two Tangents from Same Point</div>
+              <div class="sub-def">Two tangent segments drawn from the same external point are <strong>congruent</strong>.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Perpendicular Bisecting Chords</div>
+              <div class="sub-def">A diameter that is <strong>perpendicular to a chord bisects</strong> that chord and its two arcs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CIRCLE PROOFS -->
+      <div class="entry" id="circle-proofs">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L8/9 · Circle Proofs Tool Box</div>
+            <div class="entry-term">Circle Proofs Tool Box</div>
+            <div class="entry-pos">noun phrase · proof justifications</div>
+            <div class="entry-def">A collection of <strong>circle theorems</strong> used as reasons in formal proofs. Each theorem connects a geometric relationship to a known circle property.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="55" r="45" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <circle cx="90" cy="55" r="3" fill="#f0c060"/>
+              <line x1="90" y1="55" x2="122" y2="20" stroke="#a89fd8" stroke-width="1.2"/>
+              <line x1="90" y1="55" x2="135" y2="60" stroke="#a89fd8" stroke-width="1.2"/>
+              <text x="94" y="52" font-family="Space Mono" font-size="7" fill="#f0c060">O</text>
+              <text x="72" y="22" font-family="Space Mono" font-size="7" fill="#50d4c0">Central ∠</text>
+              <text x="58" y="90" font-family="Space Mono" font-size="7" fill="#f0c060">= intercepted arc</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Key Proof Reasons</div>
+            <table class="ntable">
+              <tr><td class="nf">Central angle</td><td class="narrow">=</td><td class="nl">its intercepted arc</td></tr>
+              <tr><td class="nf">Inscribed angle</td><td class="narrow">=</td><td class="nl">½ its intercepted arc</td></tr>
+              <tr><td class="nf">Congruent arcs</td><td class="narrow">→</td><td class="nl">congruent central angles &amp; chords</td></tr>
+              <tr><td class="nf">Tangent ⊥ radius</td><td class="narrow">→</td><td class="nl">at the point of tangency</td></tr>
+              <tr class="nsep"><td class="nf">Radii of same circle</td><td class="narrow">→</td><td class="nl">are congruent</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUATION OF A CIRCLE -->
+      <div class="entry" id="circle-equation">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L11/12 · Equation of a Circle</div>
+            <div class="entry-term">Equation of a Circle</div>
+            <div class="entry-pos">formula · standard form &amp; completing the square</div>
+            <div class="entry-def">The standard form equation of a circle with center <strong>(h, k)</strong> and radius <strong>r</strong> is <strong>(x − h)² + (y − k)² = r²</strong>. When given general form, use <em>completing the square</em> to convert.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="90" cy="60" r="45" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <circle cx="90" cy="60" r="4" fill="#f0c060"/>
+              <line x1="90" y1="60" x2="125" y2="27" stroke="#a89fd8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <text x="94" y="57" font-family="Space Mono" font-size="7" fill="#f0c060">(h,k)</text>
+              <text x="105" y="40" font-family="Space Mono" font-size="8" fill="#a89fd8">r</text>
+              <text x="90" y="115" font-family="Libre Baskerville" font-size="11" fill="#e8e6f0" text-anchor="middle">(x−h)²+(y−k)²= r²</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Standard Form</div>
+            <table class="ntable">
+              <tr><td class="nf">(x − h)² + (y − k)² = r²</td><td class="narrow">→</td><td class="nl">center (h, k), radius r</td></tr>
+              <tr><td class="nf">Center at origin</td><td class="narrow">→</td><td class="nl">x² + y² = r²</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Completing the Square — Convert to Standard Form</div>
+            <div class="example-text">
+              x² + y² − 6x + 4y − 3 = 0<br>
+              Group: (x² − 6x &nbsp;__) + (y² + 4y &nbsp;__) = 3<br>
+              Complete: (x² − 6x + <strong>9</strong>) + (y² + 4y + <strong>4</strong>) = 3 + 9 + 4<br>
+              Result: <strong>(x − 3)² + (y + 2)² = 16</strong><br>
+              Center = (3, −2), Radius = 4
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARC LENGTH & SECTOR -->
+      <div class="entry" id="arc-sector">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L13 · Arc Length &amp; Area of Sector</div>
+            <div class="entry-term">Arc Length &amp; Area of Sector</div>
+            <div class="entry-pos">formula · degree or radian measure</div>
+            <div class="entry-def">Both formulas use the <strong>central angle</strong> as a fraction of the full circle (360°). An <strong>arc</strong> is a portion of the circumference; a <strong>sector</strong> is the "pie slice" region bounded by two radii and an arc.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="85" cy="65" r="48" stroke="#3a3850" stroke-width="1.5" fill="none"/>
+              <path d="M 85 65 L 133 65 A 48 48 0 0 1 109 23 Z" stroke="#f0c060" stroke-width="1.5" fill="rgba(240,192,96,0.12)"/>
+              <path d="M 133 65 A 48 48 0 0 1 109 23" stroke="#50d4c0" stroke-width="3" fill="none"/>
+              <circle cx="85" cy="65" r="3" fill="#f0c060"/>
+              <text x="89" y="62" font-family="Space Mono" font-size="7" fill="#f0c060">θ</text>
+              <text x="130" y="35" font-family="Space Mono" font-size="8" fill="#50d4c0">arc</text>
+              <text x="105" y="75" font-family="Space Mono" font-size="7" fill="#f0c060">sector</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Formulas — θ in degrees, r = radius</div>
+            <table class="ntable">
+              <tr><td class="nf">Arc Length</td><td class="narrow">=</td><td class="nl">(θ / 360°) · 2πr</td></tr>
+              <tr class="nsep"><td class="nf">Area of Sector</td><td class="narrow">=</td><td class="nl">(θ / 360°) · πr²</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Examples — r = 6, θ = 90°</div>
+            <div class="example-text">
+              Arc Length = (90/360) · 2π(6) = ¼ · 12π = <strong>3π ≈ 9.42</strong><br>
+              Area of Sector = (90/360) · π(6²) = ¼ · 36π = <strong>9π ≈ 28.27</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div><!-- /u9-block -->
+
+    <!-- ══ UNIT 10 ══ -->
+    <div class="unit-block" id="u10-block">
+      <div class="unit-heading">
+        <div class="unit-number">10</div>
+        <div>
+          <div class="unit-tag">Unit 10 · L1–L6</div>
+          <div class="unit-name">Area, Volume &amp; Density</div>
+        </div>
+      </div>
+
+      <!-- AREA FORMULAS -->
+      <div class="entry" id="area-formulas">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L1 · Area Formulas for Basic Shapes</div>
+            <div class="entry-term">Area Formulas</div>
+            <div class="entry-pos">formula · 2D figures</div>
+            <div class="entry-def">Area measures the amount of <strong>flat space</strong> enclosed by a 2D figure, expressed in <strong>square units</strong>. Each shape has a specific formula based on its dimensions.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="15" width="60" height="40" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <text x="40" y="42" font-family="Space Mono" font-size="7" fill="#50d4c0" text-anchor="middle">b × h</text>
+              <polygon points="100,55 130,15 160,55" stroke="#f0c060" stroke-width="1.5" fill="rgba(240,192,96,0.09)"/>
+              <line x1="130" y1="15" x2="130" y2="55" stroke="#f0c060" stroke-width="1" stroke-dasharray="3,2"/>
+              <text x="130" y="68" font-family="Space Mono" font-size="7" fill="#f0c060" text-anchor="middle">½bh</text>
+              <circle cx="40" cy="88" r="16" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.09)"/>
+              <text x="40" y="92" font-family="Space Mono" font-size="7" fill="#a89fd8" text-anchor="middle">πr²</text>
+              <polygon points="100,72 120,72 128,90 92,90" stroke="#ff6b35" stroke-width="1.5" fill="rgba(255,107,53,0.09)"/>
+              <text x="110" y="102" font-family="Space Mono" font-size="7" fill="#ff6b35" text-anchor="middle">½(b₁+b₂)h</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Rectangle / Parallelogram</div>
+              <div class="sub-def">A = <strong>b · h</strong><br>Base times height (height must be perpendicular).</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Triangle</div>
+              <div class="sub-def">A = <strong>½ · b · h</strong><br>Half the base times the perpendicular height.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Trapezoid</div>
+              <div class="sub-def">A = <strong>½(b₁ + b₂) · h</strong><br>Average of the two parallel bases times height.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Circle</div>
+              <div class="sub-def">A = <strong>πr²</strong> &nbsp;· Circumference = <strong>2πr</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPOSITE FIGURES -->
+      <div class="entry" id="composite-figures">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L2 · Composite Figures &amp; Shaded Regions</div>
+            <div class="entry-term">Composite Figures &amp; Area of Shaded Region</div>
+            <div class="entry-pos">noun phrase · combined shapes</div>
+            <div class="entry-def">A <strong>composite figure</strong> is made of two or more basic shapes. Find total area by <strong>adding</strong> the parts. For <strong>shaded region</strong>, subtract the unshaded shape from the outer shape.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="40" width="140" height="60" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.09)"/>
+              <polygon points="90,10 20,40 160,40" stroke="#f0c060" stroke-width="1.5" fill="rgba(240,192,96,0.09)"/>
+              <text x="90" y="72" font-family="Space Mono" font-size="8" fill="#50d4c0" text-anchor="middle">A_rect</text>
+              <text x="90" y="30" font-family="Space Mono" font-size="8" fill="#f0c060" text-anchor="middle">A_tri</text>
+              <text x="90" y="100" font-family="Space Mono" font-size="7" fill="#7a7890" text-anchor="middle">Total = A_rect + A_tri</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Two Strategies</div>
+            <table class="ntable">
+              <tr><td class="nf">Add parts</td><td class="narrow">→</td><td class="nl">break composite into known shapes, sum the areas</td></tr>
+              <tr class="nsep"><td class="nf">Shaded region</td><td class="narrow">=</td><td class="nl">A<sub>outer</sub> − A<sub>inner</sub></td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example — Shaded Region</div>
+            <div class="example-text">
+              Large square: 10 × 10 = 100<br>
+              Inner circle: π(4²) ≈ 50.27<br>
+              Shaded area = 100 − 50.27 = <strong>≈ 49.73 units²</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CROSS SECTIONS & 3D -->
+      <div class="entry" id="cross-sections">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L3 · Cross Sections &amp; Rotations</div>
+            <div class="entry-term">Cross Sections of 3D Figures &amp; Rotations</div>
+            <div class="entry-pos">noun phrase · 3D visualization</div>
+            <div class="entry-def">A <strong>cross section</strong> is the 2D shape produced by slicing a 3D solid with a plane. <strong>Rotating</strong> a 2D shape around an axis generates a 3D solid.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="90" cy="30" rx="50" ry="15" stroke="#50d4c0" stroke-width="1.5" fill="none"/>
+              <line x1="40" y1="30" x2="40" y2="80" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="140" y1="30" x2="140" y2="80" stroke="#50d4c0" stroke-width="1.5"/>
+              <ellipse cx="90" cy="80" rx="50" ry="15" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.08)"/>
+              <line x1="40" y1="56" x2="140" y2="56" stroke="#f0c060" stroke-width="2" stroke-dasharray="5,3"/>
+              <text x="145" y="59" font-family="Space Mono" font-size="7" fill="#f0c060">cut</text>
+              <ellipse cx="90" cy="56" rx="50" ry="7" stroke="#f0c060" stroke-width="1.2" fill="rgba(240,192,96,0.15)" stroke-dasharray="4,2"/>
+              <text x="90" y="102" font-family="Space Mono" font-size="7" fill="#f0c060" text-anchor="middle">cross section = ellipse</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Cross Sections</div>
+              <div class="sub-def">Sphere → <strong>circle</strong>. Cylinder horizontal → <strong>circle</strong>. Cylinder vertical → <strong>rectangle</strong>. Pyramid horizontal → <strong>similar triangle/square</strong>. Cone diagonal → <strong>ellipse or parabola</strong>.</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Rotations → 3D Shapes</div>
+              <div class="sub-def">Rectangle rotated → <strong>cylinder</strong>.<br>Triangle rotated → <strong>cone</strong>.<br>Semicircle rotated → <strong>sphere</strong>.<br>Trapezoid rotated → <strong>frustum</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VOLUME FORMULAS -->
+      <div class="entry" id="volume-formulas">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L4–6 · Volume of 3D Solids</div>
+            <div class="entry-term">Volume Formulas</div>
+            <div class="entry-pos">formula · 3D figures · includes surface area</div>
+            <div class="entry-def">Volume measures the amount of <strong>3D space</strong> a solid occupies, in <strong>cubic units</strong>. <strong>Surface area</strong> is the total area of all outer faces, in square units.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg">
+              <!-- Cube -->
+              <rect x="12" y="30" width="40" height="40" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.08)"/>
+              <polygon points="12,30 22,20 62,20 52,30" stroke="#50d4c0" stroke-width="1.5" fill="rgba(80,212,192,0.05)"/>
+              <line x1="52" y1="30" x2="62" y2="20" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="62" y1="20" x2="62" y2="60" stroke="#50d4c0" stroke-width="1.5"/>
+              <line x1="52" y1="70" x2="62" y2="60" stroke="#50d4c0" stroke-width="1.5"/>
+              <text x="37" y="85" font-family="Space Mono" font-size="7" fill="#50d4c0" text-anchor="middle">s³</text>
+              <!-- Sphere -->
+              <circle cx="115" cy="48" r="28" stroke="#a89fd8" stroke-width="1.5" fill="rgba(168,159,216,0.08)"/>
+              <ellipse cx="115" cy="48" rx="28" ry="8" stroke="#a89fd8" stroke-width="1" fill="none" stroke-dasharray="4,2"/>
+              <text x="115" y="90" font-family="Space Mono" font-size="7" fill="#a89fd8" text-anchor="middle">⁴⁄₃πr³</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="sub-grid">
+            <div class="sub-card">
+              <div class="sub-term">Cube / Rectangular Prism</div>
+              <div class="sub-def">V = <strong>l · w · h</strong> &nbsp;(cube: s³)<br>SA = <strong>2(lw + lh + wh)</strong></div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Sphere</div>
+              <div class="sub-def">V = <strong>⁴⁄₃ · π · r³</strong><br>SA = <strong>4πr²</strong></div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Cylinder</div>
+              <div class="sub-def">V = <strong>π · r² · h</strong><br>SA = <strong>2πr² + 2πrh</strong></div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Cone</div>
+              <div class="sub-def">V = <strong>⅓ · π · r² · h</strong><br>SA = <strong>πr² + πrl</strong> &nbsp;(l = slant height)</div>
+            </div>
+            <div class="sub-card">
+              <div class="sub-term">Pyramid</div>
+              <div class="sub-def">V = <strong>⅓ · B · h</strong><br>B = area of base, h = height</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DENSITY -->
+      <div class="entry" id="density">
+        <div class="entry-top">
+          <div>
+            <div class="lesson-badge">L4–6 · Density Formula</div>
+            <div class="entry-term">Density Formula</div>
+            <div class="entry-pos">formula · mass per unit volume or area</div>
+            <div class="entry-def"><strong>Density</strong> describes how much <strong>mass</strong> is packed into a given space. It can be <em>population density</em> (people per area) or <em>material density</em> (mass per volume). The triangle method helps you remember all three forms.</div>
+          </div>
+          <div class="entry-diagram">
+            <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="90,12 20,95 160,95" stroke="#f0c060" stroke-width="2" fill="rgba(240,192,96,0.08)"/>
+              <line x1="20" y1="95" x2="160" y2="95" stroke="#f0c060" stroke-width="2"/>
+              <line x1="90" y1="95" x2="90" y2="55" stroke="#3a3850" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <text x="90" y="45" font-family="Libre Baskerville" font-size="13" fill="#f0c060" text-anchor="middle">M</text>
+              <text x="45" y="95" font-family="Libre Baskerville" font-size="13" fill="#50d4c0" text-anchor="middle">D</text>
+              <text x="138" y="95" font-family="Libre Baskerville" font-size="13" fill="#a89fd8" text-anchor="middle">V</text>
+              <text x="90" y="108" font-family="Space Mono" font-size="7" fill="#7a7890" text-anchor="middle">cover what you want to find</text>
+            </svg>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="notation-block">
+            <div class="block-label">Three Forms of the Formula</div>
+            <table class="ntable">
+              <tr><td class="nf">Density</td><td class="narrow">=</td><td class="nl">Mass / Volume &nbsp;(or Mass / Area)</td></tr>
+              <tr><td class="nf">Mass</td><td class="narrow">=</td><td class="nl">Density × Volume</td></tr>
+              <tr><td class="nf">Volume</td><td class="narrow">=</td><td class="nl">Mass / Density</td></tr>
+            </table>
+          </div>
+          <div class="example-block">
+            <div class="block-label">Example</div>
+            <div class="example-text">
+              A city has 120,000 people in an area of 40 km².<br>
+              Population density = 120,000 / 40 = <strong>3,000 people/km²</strong><br><br>
+              A metal block: mass = 540 g, volume = 60 cm³.<br>
+              Density = 540 / 60 = <strong>9 g/cm³</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /u10-block -->
 
     <div class="no-results" id="no-results">No terms match your search.</div>
   </main>
@@ -1741,6 +2175,7 @@ function showUnit(unit, btn) {
   document.getElementById('u7-block').classList.toggle('visible', unit === 'all' || unit === 'u7');
   document.getElementById('u8-block').classList.toggle('visible', unit === 'all' || unit === 'u8');
   document.getElementById('u9-block').classList.toggle('visible', unit === 'all' || unit === 'u9');
+  document.getElementById('u10-block').classList.toggle('visible', unit === 'all' || unit === 'u10');
   document.querySelectorAll('[data-unit]').forEach(s => {
     s.style.display = (unit === 'all' || s.dataset.unit === unit) ? '' : 'none';
   });
@@ -1772,6 +2207,7 @@ function filterEntries(q) {
   document.getElementById('u7-block').classList.add('visible');
   document.getElementById('u8-block').classList.add('visible');
   document.getElementById('u9-block').classList.add('visible');
+  document.getElementById('u10-block').classList.add('visible');
   let any = false;
   document.querySelectorAll('.entry').forEach(e => {
     const show = e.textContent.toLowerCase().includes(q);
